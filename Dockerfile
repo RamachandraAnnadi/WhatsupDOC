@@ -1,12 +1,12 @@
 FROM sdorra/oracle-java-8 
 #RUN apk update && apk add bash
-RUN mkdir -p /opt/WhatsupDOC
+RUN mkdir -p /opt/whatsupdoc
 
-COPY . /opt/WhatsupDOC/
+COPY . /opt/whatsupdoc/
 
-WORKDIR /opt/WhatsupDOC/
+WORKDIR /opt/whatsupdoc/
 
 EXPOSE 8443
 
 
-CMD ./gradlew WhatsupDOC
+CMD ./gradlew whatsupdoc
