@@ -108,12 +108,13 @@ script {
   //returnStdout: true,
   //)
    //private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'")
-   private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()
+   //private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()
    //private_ip = sh(script: "echo ${private_ip}", returnStdout: true,).trim()
-     }
+    private_ip = sh(script: "cat /tmp/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()     
+}
 
 //sh 'ssh 'cat private_ip | awk {'NR==2'} | tr -d {' '} | tr -d {'"'} |tr -d ',' ''
-sh "cp /var/lib/jenkins/docker-deploy.sh ."
+sh "cp /var/lib/jenkins/workspace/whatsupDOC/docker-deploy.sh ."
 sh "ls"
 //sh "ssh jenkins@'cat private_ip | awk {'NR==2'} | tr -d {' '} | tr -d {'"'} |tr -d ',' 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
 sh "ssh -T jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
