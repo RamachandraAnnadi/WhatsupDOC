@@ -67,9 +67,9 @@ stages {
     }
     stage('Build and Push Docker Image') {
       steps {
-        sh label: '', script: '''docker build -t WhatsupDOC-image:$BUILD_NUMBER .
-                                 docker tag WhatsupDOC-image:$BUILD_NUMBER docker.io/ramachandraannadi/WhatsupDOC-image:$BUILD_NUMBER
-                                 sudo docker push docker.io/ramachandraannadi/WhatsupDOC-image:$BUILD_NUMBER'''
+        sh label: '', script: '''docker build -t whatsupDOC-image:$BUILD_NUMBER .
+                                 docker tag whatsupDOC-image:$BUILD_NUMBER docker.io/ramachandraannadi/whatsupDOC-image:$BUILD_NUMBER
+                                 sudo docker push docker.io/ramachandraannadi/whatsupDOC-image:$BUILD_NUMBER'''
       }
  }
 stage('install_deps') {
@@ -115,7 +115,7 @@ sh "ssh -T jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
 }
 post {
         success {
-            archiveArtifacts 'WhatsupDOC-web/target/*.war'
+            archiveArtifacts 'whatsupDOC-web/target/*.war'
         }
         //failure {
           //  mail to:"ramachandra.annadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
