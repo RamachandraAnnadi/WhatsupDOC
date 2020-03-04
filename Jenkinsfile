@@ -56,7 +56,7 @@ stages {
           "files": [
             {
               "pattern": "/var/lib/jenkins/workspace/whatsupDOC/target/qentellisolutions.war",
-              "target": "whatsupdoc-repo-crm-files"
+              "target": "http://3.135.250.86:8081/artifactory/artifactory-build-info/"
             }
          ]
     }''',
