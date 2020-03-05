@@ -27,7 +27,7 @@
 	<div class="container">
 
 		<header>
-			<h1>Qentelli Solutions Pvt Ltd . DEVOPS-TRAINING: qentelli</h1>
+			<h1>Qentelli Solutions Pvt Ltd . DEVOPS-DEMO: qentelli</h1>
 		</header>
 
 		<div id="tabs">
