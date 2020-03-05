@@ -67,6 +67,7 @@ stages {
     }
     stage('Build and Push Docker Image') {
       steps {
+	sh "cp /var/lib/jenkins/workspace/whatsupDOC/target/qentellisolutions.war ."      
         sh label: '', script: '''docker build -t whatsupdoc-image:$BUILD_NUMBER .
                                  docker tag whatsupdoc-image:$BUILD_NUMBER docker.io/ramachandraannadi/whatsupdoc-image:$BUILD_NUMBER
                                  sudo docker push docker.io/ramachandraannadi/whatsupdoc-image:$BUILD_NUMBER'''
