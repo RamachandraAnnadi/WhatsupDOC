@@ -1,12 +1,6 @@
-FROM sdorra/oracle-java-8 
-#RUN apk update && apk add bash
-RUN mkdir -p /opt/whatsupdoc
-
-COPY . /opt/whatsupdoc/
-
-WORKDIR /opt/whatsupdoc/
-
-EXPOSE 8443
-
-
-CMD ./gradlew whatsupdoc
+FROM tomcat
+MAINTAINER Ram
+ARG CONT_IMG_VER
+WORKDIR /usr/local/tomcat
+EXPOSE 8080
+COPY   /var/lib/jenkins/workspace/whatsupDOC/target/cangkitsolutions.war /usr/local/tomcat/webapps
