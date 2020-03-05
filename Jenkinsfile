@@ -117,12 +117,12 @@ sh "ssh -T jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
     }
 }
 }
-post {
-        success {
-            archiveArtifacts 'whatsupDOC-web/target/*.war'
-        }
+//post {
+  //      success {
+    //        archiveArtifacts 'whatsupDOC-web/target/*.war'
+      //  }
         //failure {
           //  mail to:"ramachandra.annadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         //}
-}
+//}
 }
