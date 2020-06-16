@@ -1,5 +1,2 @@
 # WhatsupDOC webinar application
-test application
-this is for test
-hi good morning
-hello
+this test is conducted on 16-06
